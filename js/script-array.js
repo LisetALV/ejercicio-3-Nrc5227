@@ -1,52 +1,107 @@
-//Arreglos en javascript//
-//Un conjunto de elementos definidos en una estructura
-//DEFINICIONES
-var provincias = ['Loja','Azuay','Cañar','Chimborazo'];
-var varios_tipos =[3,'Juan',true,'2021-05-31'];
-//Definio  un arreglo por el constructor con el numero de elementos
-var numero_primos = new Array(10);
-var serie_fibonacci = new Array(1,1,2,3,5,8,13,21);
-var figuras_geometricas = new Array();
+var personas =['Adriana', 'Jefferson', 'David','Grace' ,'Robinson','Andre','Xiomara','Grace'];
 
-//Funcion que imprime los arreglos 
-function imprimirArreglos(){
-    document.getElementById('arrProvincias').innerText=provincias;
-    document.getElementById('arrTipos').innerText=varios_tipos;
-    document.getElementById('arrPrimos').innerText=numero_primos;
-    document.getElementById('arrFibonacci').innerText=serie_fibonacci;
-    document.getElementById('arrGeometricas').innerText=figuras_geometricas;
+function imprimirPersonas(){
+    document.getElementById('arrPersonas').innerText= personas;
+    document.getElementById('arrPersonas').append(" el arreglo tiene "+ personas.length + " elementos");
+
 }
-function imprimirCadaProvicia(){
-    //Va a rrecorrer cada elemento del arreglo Provincia
-    provincias.forEach((x) => {
-        var li = document.createElement('li');
-        li.innerText=x;
-        document.getElementById('ulProvincias').appendChild(li);
-    });
+function imprimirNuevo(nuevoPersonas){
+    document.getElementById('arrNuevo').innerText= nuevoPersonas;
+    document.getElementById('arrNuevo').append(" el arreglo tiene "+ nuevoPersonas.length + " elementos");
+
 }
-function agregarProvincias(){
-    var  nombre = document.getElementById('txtProvincias').value;
-    provincias.push(nombre);
-    document.getElementById('arrProvincias').innerText = provincias;
-    document.getElementById('txtFigura').value='';
+function pushPersonas(){
+    var input = document.getElementById('txtNombre');
+    var nombre = input.value;
+    var numero_elementos = personas.push(nombre);
+    console.log("#numero de elementos en el arreglo =>" + numero_elementos);
+    input.value = "";
+    imprimirPersonas();
 }
-function agregarFigura(){
-    var  nombre = document.getElementById('txtFigura').value;
-    figuras_geometricas.push(nombre);
-    document.getElementById('arrGeometricas').innerText = figuras_geometricas;
-    document.getElementById('txtFigura').value;
+
+function popPersonas(){
+    var eliminado = personas.pop();
+    console.log("Elemento eliminado => "+ eliminado);
+    imprimirPersonas();
 }
-function imprimirFibonacci(){
-    //Va a rrecorrer cada elemento del arreglo Provincia
-    serie_fibonacci.forEach((x) => {
-        var li = document.createElement('li');
-        li.innerText=x;
-        document.getElementById('ulFibonacci').appendChild(li);
-    });
+function unshiftPersonas(){
+    var input = document.getElementById('txtNombre');
+    var nombre = input.value;
+    var numero_elementos = personas.unshift(nombre);
+    console.log("#numero de elementos en el arreglo =>" + numero_elementos);
+    input.value = "";
+    imprimirPersonas();
 }
-function agregarFibonacci(){
-    var  nombre = document.getElementById('txtFibonacci').value;
-    serie_fibonacci.push(nombre);
-    document.getElementById('arrFibonacci').innerText = serie_fibonacci;
-    document.getElementById('txtFibonacci').value='';
+//elimina el primer elemento 
+function shiftPersonas(){
+    var eliminado = personas.shift();
+    console.log("Elemento eliminado => "+ eliminado);
+    imprimirPersonas();
+}
+function slicePersonas(){
+    var strInicio = document.getElementById('txtInicio').value;
+    var strFin = document.getElementById('txtFinal').value;
+    var intInicio = parseInt(strInicio);
+    var intFin = parseInt(strFin);
+    var nuevoArregloPersonas = personas.slice(intInicio, intFin)
+    imprimirNuevo(nuevoArregloPersonas);
+    imprimirPersonas();
+}
+function splicePersonas(){
+    var strInicio = document.getElementById('txtInicioSplice').value;
+    var strNum = document.getElementById('txtNumSplice').value;
+    var intInicio = parseInt(strInicio);
+    var intNum = parseInt(strNum);
+    //personas.splice(intInicio, intNum)
+    var nuevoArregloPersonas = personas.splice(intInicio, intNum);
+    //console.log("Splice => " + num);
+    imprimirNuevo(nuevoArregloPersonas);
+    imprimirPersonas();
+}
+function splicePlushPersonas(){
+    var strInicio = document.getElementById('txtInicioSplice').value;
+    var strNum = document.getElementById('txtNumSplice').value;
+    var intInicio = parseInt(strInicio);
+    var intNum = parseInt(strNum);
+    var input = document.getElementById('txtNombre');
+    var nombre = input.value;
+    var nuevoArregloPersonas = personas.splice(intInicio, intNum, nombre);
+    imprimirNuevo(nuevoArregloPersonas);
+    imprimirPersonas();
+}
+function joinPersonas(){
+    var sep = document.getElementById('txtSep').value;
+    var resultado =personas.join(sep);
+    imprimirNuevo(resultado);
+}
+function arrayDesde(){
+    var sep = document.getElementById('txtSep').value;
+    var resultado =Array.from(sep);
+    imprimirNuevo(resultado);
+}
+function includesPersonas(){
+    var valorABuscar = document.getElementById('txtCriterioBusqueda').value;
+    var encontrado = personas.includes(valorABuscar);
+    document.getElementById('arrResultado').innerText ="Encontrado =>" + encontrado;
+      
+}
+function indexOfPersonas(){
+    var valorABuscar = document.getElementById('txtCriterioBusqueda').value;
+    var encontrado = personas.indexOf(valorABuscar);
+    document.getElementById('arrResultado').innerText ="Encontrado en =>" + encontrado;
+      
+}
+function lastindexOfPersonas(){
+    var valorABuscar = document.getElementById('txtCriterioBusqueda').value;
+    var encontrado = personas.lastIndexOf(valorABuscar);
+    document.getElementById('arrResultado').innerText ="Encontrado en =>" + encontrado;
+      
+}
+function sortPersonas(){
+    personas.sort();
+     imprimirPersonas(); 
+}
+function reversePersonas(){
+    personas.reverse();
+     imprimirPersonas(); 
 }

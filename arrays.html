@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>M&eacute;todos y Funciones de JS</title>
+    </header>
+    <body onload="imprimirPersonas()">
+        <!--Encabezado-->
+        <header>
+            <h1>
+                JavaScript: M&eacute;todos y Funciones de JS
+                <hr>
+            </h1>
+        </header>
+        <!--Contenido-->
+        <div>
+            <h2>Personas en el arreglo </h2>
+            <p id="arrPersonas"></p>
+            <hr>
+            <h3>M&eacute;todos</h3>
+            <fieldset>
+                <h4>Agregar o eliminar elementos del Arreglo</h4>
+  
+                <label for="txtNombre">Nombre</label>
+                <input type="text " name="txtNombre" id="txtNombre">
+                <hr>
+                <div>
+                    <button onclick="pushPersonas()">PUSH</button>
+                    <button onclick="popPersonas()">POP</button>
+                    <button onclick="unshiftPersonas()">UNSHIFT</button>
+                    <button onclick="shiftPersonas()">SHIFT</button>
+                </div>
+                <h4>Creaci&oacute;n de arrays</h4>
+                <hr>
+                <p id="arrNuevo"></p>
+                <div>
+                    <button onclick="slicePersonas()">SLICE</button>
+                    <label for="txtInicio">Indice Inicial: </label>
+                    <input type="number" value="1"  min="1" name="txtInicio" id="txtInicio">
+                    <label for="txtFinal">Indice Final: </label>
+                    <input type="number" value="1" min="1" name="txtFinal" id="txtFinal">
+                </div>
+                <hr>
+                <div>
+                    
+                    <button onclick="splicePersonas()">SPLICE</button>
+                    <button onclick="splicePlushPersonas()">SPLICE+</button>
+                    <label for="txtInicioSplice">Indice Inicial: </label>
+                    <input type="number" value="1" min="1" name="txtInicioSplice" id="txtInicioSplice">
+                    <label for="txtNumSplice">Numero de elementos: </label>
+                    <input type="number" value="1" min="1" name="txtNumSplice" id="txtNumSplice">
+                </div>
+                <hr>
+                <div>
+                    
+                    <button onclick="joinPersonas()">JOIN</button>
+                    <button onclick="arrayDesde()">ARRAY FROM</button>
+
+                    <label for="txtSep">Cadena: </label>
+                    <input type="text" name="txtSep" id="txtSep">
+                </div>
+                <h4>B&uacute;squeda y comprobaci&oacute;n</h4>
+                <hr>
+                <p id="arrResultado"></p>
+                <label for="txtCriterioBusqueda">Buscar: </label>
+                <input type="text " name="txtCriterioBusqueda" id="txtCriterioBusqueda">
+                <hr>
+                <div>
+                    <button onclick="includesPersonas()">INCLUDES</button>
+                    <button onclick="indexOfPersonas()">INDEX OF</button>
+                    <button onclick="lastindexOfPersonas()">LAST INDEX OF</button>
+                    <button onclick="sortPersonas()">ORDENAR</button>
+                    <button onclick="reversePersonas()">REVERSE</button>
+                </div>
+            </fieldset>
+        </div>
+        <!--Pie de pagina-->
+        <footer>
+            <script src="js/script-array.js"></script>
+        </footer>
+    </body>
+</html>
